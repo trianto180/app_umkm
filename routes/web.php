@@ -17,10 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('posts', 'AnggotaumkmController@index');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('anggotas/index', 'AnggotaUmkmController@index');
