@@ -1,12 +1,14 @@
 <?php
 
 namespace App;
-
+use App\AnggotaUmkm;
 use Illuminate\Database\Eloquent\Model;
 
 class KategoriUmkm extends Model
 {
-    public function anggotaumkms()
+    protected $fillable = ['nama_kategori'];
+
+    public function anggotaumkm()
     {
         return $this->hasMany(AnggotaUmkm::class);
     }

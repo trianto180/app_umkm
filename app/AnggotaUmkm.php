@@ -2,15 +2,18 @@
 
 namespace App;
 
+use App\BlogUmkm;
+use App\KategoriUmkm;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use App\BlogUmkm;
 
 class AnggotaUmkm extends Model
 {
+    protected $fillable = ['nama_umkm', 'email', 'alamat', 'no_hp', 'foto'];
+
     public function kategoriumkm()
     {
-        return $this->hasOne(KategoriUmkm::class);
+        return $this->belongsTo(KategoriUmkm::class, 'kategori_umkm_id');
     }
 
     public function blogumkm()

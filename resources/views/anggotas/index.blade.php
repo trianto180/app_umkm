@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Anggota UMKM</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item active">Anggota UMKM</li>
             </ol>
           </div>
         </div>
@@ -26,56 +26,37 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Halaman Anggota UMKM</h3>
               </div>
-              <!-- /.card-header -->
+              <!-- /.card-header harus membuat model fillable--> 
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>Kategori UMKM</th>
+                    <th>Nama UMKM</th>
+                    <th>Email</th>
+                    <th>Alamat</th>
+                    <th>No Hp</th>
+                    <th>Foto</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
                   </thead>
                   <tbody>
+                    @foreach ($anggotaumkms as $anggota)
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
+                    <td>{{ $anggota->kategoriumkm->nama_kategori }}</td>
+                    <td>{{ $anggota->nama_umkm }}</td>
+                    <td>{{ $anggota->email }}</td>
+                    <td>{{ $anggota->alamat }}</td>
+                    <td>{{ $anggota->no_hp }}</td>
+                    <td>{{ $anggota->foto }}</td>
+                    <td><button type="button" class="btn btn-danger">Danger</button></td>
+                    <td><button type="button" class="btn btn-primary">Primary</button></td>
                   </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                  </tr>
-                  <tr>
-                    <td>Other browsers</td>
-                    <td>All others</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>U</td>
-                  </tr>
+                  @endforeach
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                  </tr>
-                  </tfoot>
                 </table>
               </div>
               <!-- /.card-body -->
