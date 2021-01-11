@@ -1,4 +1,5 @@
 @extends('master.app')
+
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -24,6 +25,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
+            @include('alert')
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Halaman Anggota UMKM</h3>
@@ -44,20 +46,23 @@
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($anggotaumkms as $anggota)
+                  @foreach ($anggotaumkms as $anggota)
                   <tr>
                     <td>{{ $anggota->kategoriumkm->nama_kategori }}</td>
                     <td>{{ $anggota->nama_umkm }}</td>
                     <td>{{ $anggota->email }}</td>
                     <td>{{ $anggota->alamat }}</td>
                     <td>{{ $anggota->no_hp }}</td>
-                    <td>{{ $anggota->foto }}</td>
-                    <td><button type="button" class="btn btn-danger">Danger</button></td>
-                    <td><button type="button" class="btn btn-primary">Primary</button></td>
+                    <td><img src="photos/anggotaumkm/{{$anggota->foto_umkm}}" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt=""></td>
+                    <td><button type="button" class="btn btn-danger">Hapus</button></td>
+                    <td><button type="button" class="btn btn-primary">Edit</button></td>
                   </tr>
                   @endforeach
                   </tbody>
                 </table>
+                <div>
+                  <a href="/create" class="btn btn-primary">Tambah Data</a>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>

@@ -21,4 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('anggotas/index', 'AnggotaUmkmController@index');
+Route::get('/index', 'AnggotaUmkmController@index');
+Route::get('/create', 'AnggotaUmkmController@create');
+Route::post('/store', 'AnggotaUmkmController@store');
