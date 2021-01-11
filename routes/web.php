@@ -22,5 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/index', 'AnggotaUmkmController@index');
+
 Route::get('/create', 'AnggotaUmkmController@create');
 Route::post('/store', 'AnggotaUmkmController@store');
+
+Route::get('/anggotas/edit/{id}', 'AnggotaUmkmController@edit');
+Route::patch('anggotas/update/{id}', 'AnggotaUmkmController@update');

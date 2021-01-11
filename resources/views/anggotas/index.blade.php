@@ -55,7 +55,7 @@
                     <td>{{ $anggota->no_hp }}</td>
                     <td><img src="photos/anggotaumkm/{{$anggota->foto_umkm}}" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt=""></td>
                     <td><button type="button" class="btn btn-danger">Hapus</button></td>
-                    <td><button type="button" class="btn btn-primary">Edit</button></td>
+                    <td><a href="/anggotas/edit/{{ $anggota->id }}" class="btn btn-success">Edit</a></td>
                   </tr>
                   @endforeach
                   </tbody>
