@@ -28,14 +28,24 @@
               </div>
               <div class="card-body">
                 <div class="col-md-6">
-                    <form action="/anggotas/update/{{$anggota->id}}" method="POST">
+                    <form action="/anggotas/update/{{$anggota->id}}" method="POST" autocomplete="off" enctype="multipart/form-data">
                     @method('patch')
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="kategori_umkm_id">Kategori UMKM</label>
-                            <input type="text" class="form-control @error('nama_umkm') is-invalid @enderror" name="kategori_umkm_id" id="kategori_umkm_id" value="{{ old('nkategori_umkm_id') ?? $anggota->kategori_umkm_id }}">
-                        </div>
+                      <div class="form-group">
+                        <label for="kategori_umkm_id">Kategori UMKM</label>
+                        <select class="form-control @error('kategori_umkm_id') is-invalid @enderror" name="kategori_umkm_id" id="kategori_umkm_id" value="{{ old('kategori_umkm_id') ?? '' }}">
+                          <option disabled selected>Choose one!</option>
+                          @foreach ($kategoriumkm as $kategori)
+                              <option {{ $kategori->id == $anggota->kategori_umkm_id ? 'selected' : '' }} value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                          @endforeach
+                        </select>
+                          @error('kategori_umkm_id')
+                          <div class="invalid-feedback">
+                              {{ $message }}
+                          </div>
+                          @enderror
+                    </div>
                         <div class="form-group">
                             <label for="nama_umkm">Nama UMKM</label>
                             <input type="text" class="form-control @error('nama_umkm') is-invalid @enderror" name="nama_umkm" id="nama_umkm" value="{{ old('nama_umkm') ?? $anggota->nama_umkm }}">
@@ -47,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control @error('nama_umkm') is-invalid @enderror" id="email" placeholder="example@example.com" value="{{ old('email') ?? $anggota->email }}">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="example@example.com" value="{{ old('email') ?? $anggota->email }}">
                             @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -56,7 +66,7 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <input type="text" class="form-control @error('nama_umkm') is-invalid @enderror" name="alamat" id="alamat" value="{{ old('alamat') ?? $anggota->alamat }}">
+                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" id="alamat" value="{{ old('alamat') ?? $anggota->alamat }}">
                             @error('alamat')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -65,7 +75,7 @@
                         </div>
                         <div class="form-group">
                             <label for="no_hp">No Telp</label>
-                            <input type="text" class="form-control @error('nama_umkm') is-invalid @enderror" name="no_hp" id="no_hp" value="{{ old('no_hp') ?? $anggota->no_hp }}">
+                            <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" value="{{ old('no_hp') ?? $anggota->no_hp }}">
                             @error('no_hp')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -76,12 +86,14 @@
                         <label for="exampleInputFile">Foto</label>
                         <div class="input-group">
                             <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <input type="file" class="custom-file-input" id="foto_umkm" name="foto_umkm">
+                            <label class="custom-file-label" for="foto_umkm">Choose file</label>
                             </div>
-                            <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
+                            @error('foto_umkm')
+                            <div class="invalid-feedback">
+                                {{ $message }}
                             </div>
+                            @enderror
                         </div>
                         </div>
                     </div>

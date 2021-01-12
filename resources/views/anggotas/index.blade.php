@@ -32,6 +32,10 @@
               </div>
               <!-- /.card-header harus membuat model fillable--> 
               <div class="card-body">
+                <div>
+                  <a href="/create" class="btn btn-primary"><i class="fas fa-plus-square"></i>&nbsp Tambah Data</a>
+                </div>
+                <br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -41,8 +45,8 @@
                     <th>Alamat</th>
                     <th>No Hp</th>
                     <th>Foto</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <th>Hapus</th>
+                    <th>Edit</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -53,16 +57,19 @@
                     <td>{{ $anggota->email }}</td>
                     <td>{{ $anggota->alamat }}</td>
                     <td>{{ $anggota->no_hp }}</td>
-                    <td><img src="photos/anggotaumkm/{{$anggota->foto_umkm}}" class="img-responsive" style="margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;width:75%;" alt=""></td>
-                    <td><button type="button" class="btn btn-danger">Hapus</button></td>
-                    <td><a href="/anggotas/edit/{{ $anggota->id }}" class="btn btn-success">Edit</a></td>
+                    <td><img src="{{ asset("storage/" . $anggota->foto_umkm) }}" class="img-thumbnail" width="80px"></td>
+                    <td>
+                      <form action="anggotas/{{ $anggota->id }}" method="POST" onsubmit="return confirm('Yakin ingin hapus data Anggota?')">
+                        @method("delete")
+                        @csrf
+                        <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                      </form>
+                    </td>
+                    <td><a href="/anggotas/edit/{{ $anggota->id }}" class="btn btn-success"><i class="fas fa-edit"></i></a></td>
                   </tr>
                   @endforeach
                   </tbody>
                 </table>
-                <div>
-                  <a href="/create" class="btn btn-primary">Tambah Data</a>
-                </div>
               </div>
               <!-- /.card-body -->
             </div>

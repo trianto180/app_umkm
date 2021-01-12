@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class AnggotaUmkm extends Model
 {
-    protected $fillable = ['kategori_umkm_id','nama_umkm', 'email', 'alamat', 'no_hp', 'foto'];
+    protected $fillable = ['kategori_umkm_id','nama_umkm', 'email', 'alamat', 'no_hp', 'foto_umkm'];
 
     public function kategoriumkm()
     {
