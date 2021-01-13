@@ -28,7 +28,7 @@
               </div>
               <div class="card-body">
                 <div class="col-md-6">
-                    <form action="/store" method="POST" autocomplete="off" enctype="multipart/form-data">
+                    <form action="/anggotas/store" method="POST" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -91,7 +91,7 @@
                               <div class="invalid-feedback">
                                   {{ $message }}
                               </div>
-                              @enderror
+                            @enderror
                               </div>
                           </div>
                           </div>

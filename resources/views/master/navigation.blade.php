@@ -70,15 +70,23 @@
         <!-- Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library -->
         <li class="nav-item">
-        <a href="/index" class="nav-link">
-            <i class="fas fa-users"></i>
+          <a href="\home" class="nav-link">
+              <i class="fas fa-users"></i>
+              <p>
+              &nbsp Home
+              </p>
+          </a>
+        </li>
+        <li class="nav-item">
+        <a href="\anggotas/index" class="nav-link">
+            <i class="fas fa-home"></i>
             <p>
             &nbspAnggota UMKM
             </p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
+        <a href="\blogs/index" class="nav-link">
             <i class="fab fa-blogger-b"></i>
             <p>
             &nbsp Blog UMKM
@@ -86,7 +94,7 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
+        <a href="\produks/index" class="nav-link">
             <i class="fas fa-archive"></i>
             <p>
             &nbsp Produk UMKM
@@ -94,7 +102,7 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="pages/widgets.html" class="nav-link">
+        <a href="\kategoris/index" class="nav-link">
             <i class="fas fa-angle-double-right"></i>
             <p>
             &nbsp Kategori UMKM

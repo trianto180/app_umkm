@@ -48,8 +48,8 @@ class AnggotaUmkmController extends Controller
         AnggotaUmkm::create($attr);
 
         session()->flash('success', 'Anggota UMKM Berhasil Ditambahkan');
-        
-        return redirect('/index');
+
+        return redirect('anggotas/index');
     }
 
     public function edit($id)
@@ -86,14 +86,14 @@ class AnggotaUmkmController extends Controller
         $anggota['foto_umkm'] = $foto_umkm;
         $anggota->save();
         session()->flash('success', 'Anggota UMKM Berhasil Di Update');
-        
-        return redirect('/index');
+
+        return redirect('anggotas/index');
     }
 
     public function delete($id)
     {
         $anggota = AnggotaUmkm::find($id);
         $anggota->delete();
-        return redirect('/index');
+        return redirect('anggotas/index');
     }
 }
